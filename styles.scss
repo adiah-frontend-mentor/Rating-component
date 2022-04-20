@@ -1,11 +1,40 @@
+// Variables
+
 $font-stack: 'Overpass', sans-serif;
 
 $orange: hsl(25, 97%, 53%);
 $white: hsl(0, 0%, 100%);
 $lightGrey: hsl(217, 12%, 63%);
-$mediumGrey: hsla(216, 12%, 54%, 0.285);
+// $mediumGrey: hsla(216, 12%, 54%, 0.285);
+$mediumGrey: hsl(216, 12%, 54%);
 $darkBlue: hsl(213, 19%, 18%);
 $veryDarkBlue: hsl(216, 12%, 8%);
+
+
+// ---------------------------------------------
+
+// Mixins
+
+$breakpoints-up: ("medium": "40em", "large": "64em", "xlarge": "87.5em");
+
+// 639px, 1023px, 1399px
+$breakpoints-down: ("small": "39.9375em" ,"medium": "63.9375em", "large": "87.4375em");
+
+@mixin breakpoint-up($size){
+	@media (min-width: map-get($breakpoints-up, $size)) {
+		@content;
+	}
+}
+
+@mixin breakpoint-down($size){
+	@media (max-width: map-get($breakpoints-down, $size)) {
+		@content;
+	}
+}
+
+// ---------------------------------------------------------
+
+// Globals
 
 body {
 
@@ -20,14 +49,20 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	padding: 9.625rem 1.5rem;
+	padding: 0 1.5rem;
 	font-family: $font-stack;
 	font-size: 0.875rem;
 	font-weight: 400;
 	color: $lightGrey;
 
+	@include breakpoint-up(small){
+		font-size: 0.9375rem;
+		padding: 0;
+	}
 	
 }
+
+// ------------------------------------------------------------------------
 
 .rating-box {
 	background-color: $darkBlue;
@@ -35,10 +70,16 @@ body {
 	flex-direction: column;
 	padding: 1.5rem;
 	border-radius: 1rem;
+	max-width: 20.4375rem;
+
+	@include breakpoint-up(medium) {
+		max-width: 25.875rem;
+		padding: 2rem;
+	}
 
 	.icon {
 		align-self: start;
-		background-color: $mediumGrey;
+		background-color: $veryDarkBlue;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -46,9 +87,19 @@ body {
 		margin-bottom: 1.1875rem;
 		border-radius: 50%;
 
+		@include breakpoint-up(medium) {
+			padding: 1rem;
+			margin-bottom: 2rem;
+		}
+
 		.star-icon {
 			height: 13px;
 			width: 13px;
+
+			@include breakpoint-up(medium) {
+				height: 16px;
+				width: 16px;
+			}
 		}
 	}
 
@@ -58,8 +109,12 @@ body {
 		display: flex;
 		justify-content: space-around;
 
+		@include breakpoint-up(medium) {
+			margin-bottom: 2rem;
+		}
+
 		.choice {
-			background-color: $mediumGrey;
+			background-color: $veryDarkBlue;
 			border-radius: 50%;
 			height: 2.625rem;
 			width: 2.625rem;
@@ -67,6 +122,17 @@ body {
 			align-items: center;
 			justify-content: center;
 			font-size: 1rem;
+
+			@include breakpoint-up(medium) {
+				width: 3.125rem;
+				height: 3.125rem;
+
+				&:hover {
+					background-color: $mediumGrey;
+					color: $white;
+					cursor: pointer;
+				}
+			}
 		}
 
 		.chosen {
@@ -85,6 +151,15 @@ body {
 		text-transform: uppercase;
 		letter-spacing: 0.09375rem;
 		margin-bottom: 0.5rem;
+
+		@include breakpoint-up(medium) {
+			margin-bottom: 1.8125rem;
+			&:hover {
+				background-color: $white;
+				color: $orange;
+				cursor: pointer;
+			}
+		}
 	}
 	
 }
@@ -104,10 +179,17 @@ body {
 		width: 144px;
 		margin-top: 0.5625rem;
 		margin-bottom: 1.5rem;
+
+		@include breakpoint-up(medium) {
+			width: 10.125rem;
+			height: 6.75rem;
+			margin-top: 2.8125rem;
+			margin-bottom: 2rem;
+		}
 	}
 
 	.result {
-		background-color: $mediumGrey;
+		background-color: $veryDarkBlue;
 		padding: 5px 12px;
 		border-radius: 25px;
 		color: $orange;
@@ -116,19 +198,33 @@ body {
 
 	.message {
 		margin-bottom: 1.125rem;
+		padding: 0.5rem 1rem;
+
+		@include breakpoint-up(medium) {
+			max-width: 19.6rem;
+		}
 	}
 
 }
 
 .message {
 
+	@include breakpoint-up(medium) {
+		max-width: 20.375rem;
+	}
+
 	&__title {
 		font-size: 1.625rem;
 		font-weight: 700;
 		color: $white;
 		margin-bottom: 0.75rem;
+
+		@include breakpoint-up(medium) {
+			font-size: 1.6875rem;
+		}
 	}
 
+	
 	// &__body {
 	// }
 
