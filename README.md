@@ -40,6 +40,13 @@ Users should be able to:
 
 ## My process
 
+Created a design with AdobeXd to be as similar as possible to the design images.
+Arrange the html elements into containers to represent the structure necessary.
+
+Then I use bootstrap for some quick prototyping. Using the cdn.
+
+But went back to sass for the styling. Styled the mobile screens.
+
 ### Built with
 
 
