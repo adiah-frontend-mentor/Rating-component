@@ -11,10 +11,7 @@ This is a solution to the [Interactive rating component challenge on Frontend Me
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
 
 
 ## Overview
@@ -30,7 +27,7 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![](./screenshot.png)
 
 
 ### Links
@@ -50,7 +47,13 @@ But went back to sass for the styling. Styled the mobile screens.
 Then added some javascript to select a rating and also to submit by 
 hiding the rating box and showing the thanks box.
 
+Add styling for desktop version and hover states.
+
 ### Built with
+
+* Html
+* Scss
+* JavaScript
 
 
 ### What I learned
@@ -85,16 +88,7 @@ submitBtn.onclick = () => {
 }
 ```
 
-### Continued development
-
-
-### Useful resources
-
-
 ## Author
 
 - Website - [Nathaniel Adiah](https://nathanieladiah.github.io)
 - Frontend Mentor - [@nathanieladiah](https://www.frontendmentor.io/profile/nathanieladiah)
-
-
-## Acknowledgments
