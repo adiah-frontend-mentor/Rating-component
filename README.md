@@ -47,11 +47,43 @@ Then I use bootstrap for some quick prototyping. Using the cdn.
 
 But went back to sass for the styling. Styled the mobile screens.
 
+Then added some javascript to select a rating and also to submit by 
+hiding the rating box and showing the thanks box.
+
 ### Built with
 
 
 ### What I learned
 
+```js
+// Highlight only one choice at a time
+ratings.forEach(btn => {
+	btn.onclick = () => {
+		ratings.forEach(item => {
+			if (item.dataset.rank === btn.dataset.rank) {
+				item.classList.add('chosen')
+			}else {
+				item.classList.remove('chosen')
+			}
+		})
+		rating = btn.dataset.rank
+	}
+})
+
+// Add and remove the hidden class to show the correct screen
+const showResult = () => {
+	rateBox.classList.add('hidden');
+	thankBox.classList.remove('hidden');
+	result.innerHTML = `You selected ${rating} out of 5`
+}
+
+// Only allow the onclick if a value for rating was set
+submitBtn.onclick = () => {
+	if (rating) {
+		showResult()
+	}
+}
+```
 
 ### Continued development
 

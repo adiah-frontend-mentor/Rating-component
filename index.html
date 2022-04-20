@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+
   <title>Frontend Mentor | Interactive rating component</title>
   <link rel="stylesheet" href="styles.css">
 
@@ -19,7 +19,7 @@
 
   <!-- Rating state start -->
 
-  <div class="rating-box">
+  <div class="rating-box" id="rating">
     <div class="icon">
       <img src="images/icon-star.svg" alt="" class="star-icon">
     </div>
@@ -31,25 +31,23 @@
       </p>
     </div>
     <div class="rating-choices">
-      <div class="choice">1</div>
-      <div class="choice">2</div>
-      <div class="choice">3</div>
-      <div class="choice">4</div>
-      <div class="choice">5</div>
+      <div class="choice" data-rank="1">1</div>
+      <div class="choice" data-rank="2">2</div>
+      <div class="choice" data-rank="3">3</div>
+      <div class="choice" data-rank="4">4</div>
+      <div class="choice" data-rank="5">5</div>
     </div>
-    <button class="submit-btn">Submit</button>
+    <button id="submit" class="submit-btn">Submit</button>
   </div>
 
   <!-- Rating state end -->
 
   <!-- Thank you state start -->
 
-  <div class="thanks">
+  <div class="thanks hidden" id="thanks">
     <img src="images/illustration-thank-you.svg" alt="">
 
-    <div class="result">
-      You selected <!-- Add rating here --> out of 5
-    </div>
+    <div class="result" id="result"></div>
 
     <div class="message">
       <h1 class="message__title">Thank you!</h1>
@@ -67,6 +65,6 @@
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
   </div> -->
-
+  <script src="index.js"></script>
 </body>
 </html>
